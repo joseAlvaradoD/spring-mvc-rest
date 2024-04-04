@@ -2,6 +2,7 @@ package jjad.springframework.services;
 
 import jjad.springframework.api.v1.mapper.CustomerMapper;
 import jjad.springframework.api.v1.model.CustomerDTO;
+import jjad.springframework.domain.Customer;
 import jjad.springframework.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,15 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id)
                 .map(customerMapper::customerToCustomerDTO)
                 .get();
+    }
+
+    @Override
+    public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
+
+        Customer savedCustomer = customerRepository.save(customerMapper.customerDTOToCustomer(customerDTO));
+
+        return customerMapper.customerToCustomerDTO(savedCustomer);
+
     }
 
 }

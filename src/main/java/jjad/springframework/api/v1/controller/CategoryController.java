@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/v1/categories")
+@RequestMapping("/api/v1/categories/")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -21,13 +21,13 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping({"/",""})
+    @GetMapping
     public ResponseEntity<List<CategoryDTO>> getAllCategories(){
         return new ResponseEntity<List<CategoryDTO>>(
                 categoryService.getAllCategories(), HttpStatus.OK);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("{name}")
     public ResponseEntity<CategoryDTO> getCategoryByName(@PathVariable String name){
         return new ResponseEntity<CategoryDTO>(categoryService.getCategoryByName(name), HttpStatus.OK);
     }

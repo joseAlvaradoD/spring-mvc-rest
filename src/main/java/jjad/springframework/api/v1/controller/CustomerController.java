@@ -1,5 +1,6 @@
 package jjad.springframework.api.v1.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jjad.springframework.api.v1.model.CustomerDTO;
 import jjad.springframework.services.CustomerService;
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Customer API")
 @RestController
 @RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {

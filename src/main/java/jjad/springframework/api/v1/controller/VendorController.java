@@ -1,5 +1,6 @@
 package jjad.springframework.api.v1.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jjad.springframework.api.v1.model.VendorDTO;
 import jjad.springframework.services.VendorService;
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Vendor API")
 @RestController
 @RequestMapping(VendorController.BASE_URL)
 public class VendorController {

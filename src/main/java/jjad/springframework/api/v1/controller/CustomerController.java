@@ -26,15 +26,22 @@ public class CustomerController {
 
     }
 
-    @GetMapping({"{id}"})
+    @GetMapping("{id}")
     public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable Long id){
         return new ResponseEntity<CustomerDTO>(customerService.getCustomerById(id), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<CustomerDTO> createNewCustomer(@RequestBody CustomerDTO customerDTO){
-        return new ResponseEntity<CustomerDTO>(customerService.createNewCustomer(customerDTO),
+        return new ResponseEntity<CustomerDTO>(customerService.saveCustomer(customerDTO),
                 HttpStatus.CREATED);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO){
+        customerDTO.setId(id);
+        CustomerDTO savedDTO = customerService.saveCustomer(customerDTO);
+        return new ResponseEntity<CustomerDTO>(savedDTO, HttpStatus.OK);
     }
 
 }

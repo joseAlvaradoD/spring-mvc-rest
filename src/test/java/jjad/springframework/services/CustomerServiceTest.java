@@ -83,7 +83,7 @@ class CustomerServiceTest {
         when(customerRepository.save(any(Customer.class))).thenReturn(savedCustomer);
 
         //when
-        CustomerDTO savedDto = customerService.createNewCustomer(customerDTO);
+        CustomerDTO savedDto = customerService.saveCustomer(customerDTO);
 
         //then
         assertEquals(customerDTO.getFirstname(), savedDto.getFirstname());

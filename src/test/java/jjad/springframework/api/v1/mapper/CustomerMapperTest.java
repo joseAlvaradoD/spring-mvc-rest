@@ -2,7 +2,6 @@ package jjad.springframework.api.v1.mapper;
 
 import jjad.springframework.api.v1.model.CustomerDTO;
 import jjad.springframework.domain.Customer;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -4,10 +4,12 @@ import jjad.springframework.api.v1.mapper.VendorMapper;
 import jjad.springframework.api.v1.model.VendorDTO;
 import jjad.springframework.domain.Vendor;
 import jjad.springframework.repositories.VendorRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class VendorServiceImpl implements VendorService {
 
     private final VendorMapper vendorMapper;
